@@ -2,8 +2,6 @@
 <html>
 <head>
 <style>
-
-
 #mySidenav a {
     position: absolute;
     right: -80px;
@@ -16,36 +14,28 @@
     color: white;
     border-radius: 0 5px 5px 0;
 }
-
 #mySidenav a:hover {
     right: 20px;
 }
-
 #about {
     top: 380px;
     background-color: #4CAF50;
 }
-
 #blog {
     top: 440px;
     background-color: #2196F3;
 }
-
 #projects {
     top: 500px;
     background-color: #f44336;
 }
-
 #contact {
     top: 560px;
     background-color: #555
 }
-
-
 body {
     font-family: "Lato", sans-serif;
 }
-
 .sidenav {
     height: 100%;
     width: 0;
@@ -58,7 +48,6 @@ body {
     transition: 0.5s;
     padding-top: 60px;
 }
-
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -68,12 +57,10 @@ body {
     transition: 0.3s;
 	
 }
-
 .sidenav a:hover {
     color: #f1f1f1;
 	
 }
-
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -81,21 +68,15 @@ body {
     font-size: 36px;
     margin-left: 50px;
 }
-
 #main {
     transition: margin-left .5s;
     padding: 16px;
 }
-
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
-
-
 body {margin:0px;}
-
 .navbar {
   overflow: hidden;
   background-color: #333;
@@ -103,7 +84,6 @@ body {margin:0px;}
   top: 0px;
   width: 100%;
 }
-
 .navbar a {
   float: right;
   display: block;
@@ -113,28 +93,20 @@ body {margin:0px;}
   text-decoration: none;
   font-size: 17px;
 }
-
 .main {
   padding: 16px;
   margin-top: 30px;
   height: 1500px; /* Used in this example to enable scrolling */
 }
-
 table {
 	width:100%;
 	height:600px;
     border-collapse: collapse;
 }
-
 table, td, th {
     border: 1px solid black;
 	
 }
-
-
-
-
-
 </style>
 </head>
 <body>
@@ -148,7 +120,7 @@ table, td, th {
 <div id="mySidenav1" class="sidenav">
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About1</a>
+  <a href="profilepage.php">Profile</a>
   <a href="#">Services1</a>
   <a href="#">Clients1</a>
   <a href="#">Contact1</a>
@@ -174,7 +146,6 @@ function openNav() {
     document.getElementById("mySidenav1").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
 }
-
 function closeNav() {
     document.getElementById("mySidenav1").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
@@ -183,9 +154,8 @@ function closeNav() {
 
 
 <div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="registration.php">SignUp</a>
+  
+  <a href=" ">Logout</a>
   <h5>Discussion Session</h5>
   <div id="main">
 	  <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776; open</span>
