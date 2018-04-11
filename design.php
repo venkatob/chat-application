@@ -2,14 +2,15 @@
 session_start();
 
 
-$reg=$_POST['regno'];
+$reg=$_SESSION['regno'];
 echo"$reg";
-$_SESSION["regno"]=$_POST['regno'];
+//$_SESSION["regno"]=$_POST['regno'];
 
 $name=$_SESSION['name'];
+echo"$name";
 //echo"$regno";
 
-$conn=mysqli_connect("localhost","root","","chatlive");
+$conn=mysqli_connect("localhost","root","","chat live");
 ?>
 
 <!DOCTYPE html>
@@ -150,7 +151,7 @@ table, td, th {
 
 <table>
 		<th>
-		 <?PHP echo"$reg"; ?> <?PHP echo $name; ?>hello world
+		 <?PHP echo$reg; ?> <?PHP echo $name; ?><br>hello world
 		</th>
 	</table>
 
