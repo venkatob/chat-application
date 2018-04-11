@@ -1,6 +1,6 @@
 <?PHP
 session_start();
-$conn=mysqli_connect("localhost","root","","chatlive");
+$conn=mysqli_connect("localhost","root","","chat live");
 ?>
 <html>
 <body>
@@ -27,7 +27,7 @@ $conn=mysqli_connect("localhost","root","","chatlive");
 
 <tr><td>Contact:<td><input type="text" required="" name="contact"placeholder="contact" value=""></td></tr>
 
-<tr><td><input type="hidden" placeholder="Name" required="" name="send"value="<?php echo "$send";?>"></td></tr>
+
 
 
 
@@ -55,16 +55,18 @@ if(isset($_POST["submit"]))
     $gender=$_POST['gender'];
     $gmail=$_POST['gmail'];
     $contact=$_POST['contact'];
-    $send=$_POST['send'];
+    //$send=$_POST['send'];
+	$date=date_default_timezone_set('Asia/Kolkata');
+	$timee = date("Y-m-d H:i:s");
     
-    $conn=mysqli_connect("localhost","root","","chatlive");
+    $conn=mysqli_connect("localhost","root","","chat live");
     $qry="insert into reg values('$dp','$name','$regno','$password','$confirm_password','$dob','$descr','$dept','$gender','$gmail','$contact')";
     if($conn->query($qry)==true)
     {
-        $qry1="insert into chats values('$name','$regno','$send')";
+        $qry1="insert into chat values('$name','$regno','$send','$status','$timee')";
         if($conn->query($qry1)==true)
         {
-            echo"success";
+            header("location:login.php");
         }
         else{
             echo"failed";
