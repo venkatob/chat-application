@@ -3,18 +3,23 @@ session_start();
 
 $reg=$_SESSION["regno"];
 $name=$_SESSION["name"];
-echo"$reg";
-echo"$name";
+//echo"$reg<br>";
+//echo"$name";
 
-$conn=mysqli_connect("localhost","root","","chatlive");
+$conn=mysqli_connect("localhost","root","","chat live");
 ?>
 <?PHP
 if(isset($_POST["submit"]))
 {
 
 	$send=$_POST['send'];
+	$status=0;
+	$date=date_default_timezone_set('Asia/Kolkata');
+	$timee = date("Y-m-d H:i:s");
 
-    $qry="insert into chats values('$name','$reg','$send')";
+
+    $qry="insert into chat values('$name','$reg','$send','$status','$timee')";
+	//$qry="update chats set name='$name',regno='$reg',send='$send',receive='$send' where regno='$reg'";
     if($conn->query($qry)==true)
     {
           echo"posted succesfully ";
@@ -28,7 +33,7 @@ if(isset($_POST["submit"]))
 ?>
 <?PHP
 
-    $sql="select * from chats";
+    $sql="select * from chat";
 
     $qry=mysqli_query($conn,$sql);
     while($row=mysqli_fetch_array($qry))
@@ -46,7 +51,7 @@ if(isset($_POST["submit"]))
         <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> Chat<?PHP echo"$reg"; ?>
+                    <span class="glyphicon glyphicon-comment"></span> Chat
                  
                 <div class="panel-body">
                     
@@ -57,7 +62,7 @@ if(isset($_POST["submit"]))
                                 <div class="header">
                                     <strong class="primary-font"> <?PHP echo"$row[1]"?></strong> <small class="pull-right text-muted">
                                         <span class="glyphicon glyphicon-time"></span>
-                                        <?php print date("j of F Y, \a\\t g.i a", time()); ?></small>
+                                        <?PHP print $row[4]?></small>
                                 </div>
                                 <p>
                                
@@ -77,7 +82,7 @@ if(isset($_POST["submit"]))
                 <div class="panel-footer">
                     <div class="input-group">
 					<input type="text" name="send" placeholder="write something to send....">
-                    
+                    <input type="hidden" name="receive" value="<?php echo $receive; ?>"placeholder="write something to send....">
 
                         
                         <span class="input-group-btn">
