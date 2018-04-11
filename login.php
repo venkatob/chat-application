@@ -1,10 +1,10 @@
 <?PHP
 session_start();
-$conn=mysqli_connect("localhost","root","","chatlive");
+$conn=mysqli_connect("localhost","root","","chat live");
 ?>
 <html>
 	<body>
-	<form name="as" method="post" action="design.php">
+	<form name="as" method="post" action="">
 	<table align="center">
 	<tr><td>	<input type="text" name="regno"placeholder="Registration no" required=""></tr></td>
 	<tr><td>	<input type="password" name="password"placeholder="password" required=""></tr></td>
@@ -16,15 +16,17 @@ if(isset($_POST["submit"]))
 {
 $regno=$_POST['regno'];
 $password=$_POST['password'];
-$conn=mysqli_connect("localhost","root","","chatlive");
-$sql="select count(*) from reg where regno='$regno'&&password='$password'";
+$conn=mysqli_connect("localhost","root","","chat live");
+$sql="select * from reg where regno='$regno'&&password='$password'";
+
 $result=mysqli_query($conn,$sql);
-$fetch=mysqli_fetch_array($result);
-if($fetch[0]!="0"){
+$fetch1=mysqli_fetch_array($result);
+$fetch=mysqli_num_rows($result);
+if($fetch>0){
 	$_SESSION["regno"]=$_POST['regno'];
-	
-	echo"$regno";
-	echo"login successfully";
+	$_SESSION["name"]=$fetch1['name'];
+	//echo $regno;
+	header("location:design.php");
 }
 else{
 	echo"Failed to Login";
