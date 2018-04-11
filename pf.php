@@ -3,10 +3,11 @@ session_start();
 //if($_SESSION['regno']=="")
 
 $reg=$_SESSION["regno"];
+$name=$_SESSION["name"];
 echo"$reg";
 
 
-$conn=mysqli_connect("localhost","root","","chatlive");
+$conn=mysqli_connect("localhost","root","","chat live");
 $img=0;
 $sql="select * from reg where regno='$reg'";
 
